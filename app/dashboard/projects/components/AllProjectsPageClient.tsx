@@ -40,26 +40,11 @@ import {
   formatStatus,
   getStatusDescription,
   getStatusDotColor,
-  getStatusIcon,
   getStatusVariant,
+  Project,
   ProjectTrack,
 } from "../../components/libs";
 
-export interface Project {
-  id: string;
-  title: string;
-  description?: string;
-  status: string;
-  deadline?: string;
-  created_at: string;
-  updated_at: string;
-  client_name: string;
-  client_email?: string;
-  password_protected: boolean;
-  project_tracks?: ProjectTrack[];
-  latestTrack?: ProjectTrack | null;
-  latestTrackUpdate?: string | null;
-}
 
 export default function AllProjectsPageClient({
   initialProjects,

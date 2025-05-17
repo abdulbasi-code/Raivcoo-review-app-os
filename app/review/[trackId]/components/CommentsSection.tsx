@@ -16,14 +16,11 @@ import { Comment, formatFullDate } from "@/app/dashboard/components/libs";
 
 
 
-// Interface for the props received by this component
 interface CommentsSectionProps {
   comments: Comment[];
   isVideoFile: boolean;
   isAudioFile: boolean;
   isDecisionMade: boolean;
-
-  // Edit State & Handlers (Text)
   editingCommentId: string | null;
   editedCommentText: string;
   onEdit: (commentId: string) => void;
@@ -32,8 +29,6 @@ interface CommentsSectionProps {
   onDelete: (commentId: string) => void;
   onTextChange: (newText: string) => void;
   isEditDeletePending: boolean;
-
-  // **NEW**: Edit State & Handlers (Images) - Passed down from ReviewPage
   existingImageUrls: string[];
   newImageFiles: File[];
   newImagePreviews: string[];
@@ -49,7 +44,6 @@ export const CommentsSection: React.FC<CommentsSectionProps> = ({
   isVideoFile,
   isAudioFile,
   isDecisionMade,
-  // Text Edit Props
   editingCommentId,
   editedCommentText,
   onEdit,
@@ -58,7 +52,6 @@ export const CommentsSection: React.FC<CommentsSectionProps> = ({
   onDelete,
   onTextChange,
   isEditDeletePending,
-  // **NEW**: Image Edit Props
   existingImageUrls,
   newImageFiles,
   newImagePreviews,
@@ -102,7 +95,6 @@ export const CommentsSection: React.FC<CommentsSectionProps> = ({
                   key={comment.id}
                   className={`p-3 rounded-md border-2 border-dashed transition-colors duration-200 `}
                 >
-                  {/* Comment Header: Info and Edit/Delete Buttons */}
                   <div className="flex justify-between items-start gap-2 flex-wrap mb-2">
                     <div className="flex items-center justify-between w-full">
                       <div className="flex items-center gap-1 flex-wrap">
@@ -160,13 +152,11 @@ export const CommentsSection: React.FC<CommentsSectionProps> = ({
                   {/* Comment Body: Editable or Display */}
                   {isCurrentlyEditing ? (
                     <EditableReviewComment
-                      // Text Props
                       editedText={editedCommentText}
                       onTextChange={onTextChange}
                       onSave={onSaveEdit}
                       onCancel={onCancelEdit}
                       isSaving={isEditDeletePending}
-                      // **NEW**: Image Props Passed Down
                       existingImageUrls={existingImageUrls}
                       newImageFiles={newImageFiles}
                       newImagePreviews={newImagePreviews}

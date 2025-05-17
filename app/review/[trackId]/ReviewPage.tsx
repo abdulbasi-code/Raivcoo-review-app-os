@@ -31,7 +31,6 @@ import { FeedbackInput } from "@/app/review/[trackId]/feedbackInput";
 import { Comment, detectAndExtractLinks } from "@/app/dashboard/components/libs";
 
 
-
 interface ReviewPageProps {
   track: {
     id: string;
@@ -57,9 +56,6 @@ interface ReviewPageProps {
 }
 
 
-
-
-
 const MAX_IMAGES_PER_COMMENT = 4;
 const ACCEPTED_IMAGE_TYPES_STRING = "image/jpeg,image/png,image/webp";
 
@@ -76,13 +72,11 @@ export default function ReviewPage({
   updateCommentAction,
   deleteCommentAction,
   isAuthenticated = false,
-  userId = null,
 }: ReviewPageProps) {
   const router = useRouter();
   const [isAddPending, startAddTransition] = useTransition();
   const [isDecisionPending, startDecisionTransition] = useTransition();
   const [isEditDeletePending, startEditDeleteTransition] = useTransition();
-
   const [comments, setComments] = useState<Comment[]>(initialComments);
   const [currentTime, setCurrentTime] = useState(0);
   const [imageFiles, setImageFiles] = useState<File[]>([]);
@@ -667,7 +661,6 @@ export default function ReviewPage({
                   formatTime={formatTime}
                   maxImages={MAX_IMAGES_PER_COMMENT}
                   onTimeChange={handleTimeChange}
-                  // Decision button props
                   showDecisionButton={true}
                   onRequestRevisions={handleOpenDecisionDialog}
                   isDecisionPending={isDecisionPending}
@@ -858,9 +851,9 @@ export default function ReviewPage({
           </DialogFooter>
         </DialogContent>
       </Dialog>
-      <a href="https://raivcoo.com">
+      <a href="https://test.com">
         <span className="text-xs text-muted-foreground text-center hover:underline flex justify-center items-center mt-6">
-          Powered by Raivcoo.com
+          Powered by test.com
         </span>
       </a>
     </div>

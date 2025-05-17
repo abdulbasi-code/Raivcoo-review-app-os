@@ -2,31 +2,26 @@
 "use client";
 
 import React, { useRef } from "react";
-import Image from "next/image"; // Import Next Image
+import Image from "next/image";
 import { Textarea } from "@/components/ui/textarea";
-import { Input } from "@/components/ui/input"; // Import Input
-import { Label } from "@/components/ui/label"; // Import Label
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label"; 
 import { RevButtons } from "@/components/ui/RevButtons";
-import { Save, Ban, Loader2, Image as ImageIcon, XCircle } from "lucide-react"; // Import needed icons
+import { Save, Ban, Loader2, Image as ImageIcon, XCircle } from "lucide-react"; 
 
 
 interface EditableReviewCommentProps {
   editedText: string;
-  existingImageUrls: string[]; // Images already saved with the comment
-  newImageFiles: File[]; // New files staged during this edit
-  newImagePreviews: string[]; // Previews for new files
-
+  existingImageUrls: string[]; 
+  newImageFiles: File[]; 
+  newImagePreviews: string[]; 
   onTextChange: (newText: string) => void;
   onSave: () => Promise<void>;
   onCancel: () => void;
   isSaving: boolean;
-
-  // Image Handlers
   onRemoveExistingImage: (index: number) => void;
   onRemoveNewImage: (index: number) => void;
   onFileChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-
-  // Constants
   maxImages: number;
   acceptedImageTypes: string;
 }
@@ -52,7 +47,7 @@ export const EditableReviewComment: React.FC<EditableReviewCommentProps> = ({
 
   return (
     <div className="mt-2 space-y-3">
-      {/* Text Area (as before) */}
+      {/* Text Area */}
       <Textarea
         value={editedText}
         onChange={(e) => onTextChange(e.target.value)}
@@ -146,7 +141,7 @@ export const EditableReviewComment: React.FC<EditableReviewCommentProps> = ({
         )}
       </div>
 
-      {/* Action Buttons (as before) */}
+      {/* Action Buttons*/}
       <div className="flex justify-end gap-2 pt-2">
         <RevButtons
           variant="outline"

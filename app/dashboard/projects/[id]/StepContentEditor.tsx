@@ -332,7 +332,7 @@ export function StepContentEditor({
                   multiple
                   accept={ACCEPTED_IMAGE_TYPES_STRING}
                   onChange={handleFileChange}
-                  className="hidden" // Hide the default input, trigger via label
+                  className="hidden"
                   disabled={
                     isSaving || currentTotalImages >= MAX_IMAGES_PER_COMMENT
                   }

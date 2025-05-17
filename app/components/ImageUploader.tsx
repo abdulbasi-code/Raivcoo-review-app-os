@@ -10,11 +10,10 @@ import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Slider } from "@/components/ui/slider";
 
-// Constants
+
 const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
 const ACCEPTED_IMAGE_TYPES = ["image/jpeg", "image/png", "image/webp"];
 
-// Helper functions
 async function fileToDataUrl(file: File): Promise<string> {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
@@ -103,7 +102,7 @@ async function uploadToImgBB(file: File) {
   }
 }
 
-// Helper to check if a URL is a direct image URL (ends with image extension)
+// Helper to check if a URL is a direct image URL
 function isDirectImageUrl(url: string): boolean {
   try {
     const urlObj = new URL(url);
